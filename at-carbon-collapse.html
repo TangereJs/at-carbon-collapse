@@ -1,0 +1,77 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-collapse/iron-collapse.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+
+<!--
+
+### Example
+
+```html
+<at-carbon-collapse>
+  <div class="title">title</div>
+  <div class="content">content</div>
+</at-carbon-collapse>
+```
+-->
+<dom-module id='at-carbon-collapse'>
+
+  <template>
+
+    <style>
+      .title {              
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);        
+      }    
+
+      .toogle {
+        color: var(--disabled-text-color);
+      }
+      
+    </style>
+
+    <paper-item on-tap="_toggleOpened">
+      <paper-item-body>
+        <div class="title">
+          <div class="flex">
+            <content select=".title"></content>
+          </div>
+          <paper-icon-button class='toogle' icon=[[_toggleIcon]]></paper-icon-button>
+        </div>
+        <iron-collapse class="content" opened={{opened}}>
+          <content select=".content"></content>
+        </iron-collapse>
+      </paper-item-body>
+    </paper-item>
+
+  </template>
+</dom-module>
+
+<script>
+  (function () {
+
+    Polymer({
+      is: 'at-carbon-collapse',
+      properties: {
+        
+        opened: Boolean,
+        
+        _toggleIcon: {
+          type: String,
+          computed: '_computeToggleIcon(opened)'
+        }
+      },
+
+      _toggleOpened: function (e) {
+        this.opened = !this.opened;
+      },
+      
+      _computeToggleIcon: function (opened) {
+        return opened ? "icons:expand-less" : "icons:expand-more";
+      }
+    });
+
+  })();
+</script>
