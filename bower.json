@@ -2,10 +2,10 @@
   "name": "at-carbon-collapse",
   "version": "1.0.0.1",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0",
-    "iron-collapse": "PolymerElements/iron-collapse#^1.0.0",
-    "paper-icon-button": "PolymerElements/paper-icon-button#^1.0.0",
-    "paper-item": "PolymerElements/paper-item#^1.0.0",
-    "paper-styles": "PolymerElements/paper-styles#^1.0.0"
+    "polymer": "Polymer/polymer#master",
+    "iron-collapse": "PolymerElements/iron-collapse#master",
+    "paper-icon-button": "PolymerElements/paper-icon-button#master",
+    "paper-item": "PolymerElements/paper-item#master",
+    "paper-styles": "PolymerElements/paper-styles#master"
   }
 }
