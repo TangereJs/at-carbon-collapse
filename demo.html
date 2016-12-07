@@ -1,32 +1,33 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
   <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../iron-icons/iron-icons.html">
   <link rel="import" href="at-carbon-collapse.html">
 </head>
 
 <body>
-  <at-carbon-collapse opened>
-    <div class="title">title 1</div>
-    <div class="content">content</div>
-  </at-carbon-collapse>
-  <at-carbon-collapse>
-    <div class="title">title 2</div>
-    <div class="content">content</div>
-  </at-carbon-collapse>
-  <at-carbon-collapse>
-    <div class="title">
-      <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu molestie tortor, eu tempor eros. Fusce consequat laoreet lectus ac placerat. Curabitur eu sem maximus, venenatis arcu quis, varius turpis</h1></div>
-    <div class="content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu molestie tortor, eu tempor eros. Fusce consequat laoreet lectus ac placerat. Curabitur eu sem maximus, venenatis arcu quis, varius turpis. Sed iaculis neque lacus, sit amet scelerisque massa sodales in. Nam ullamcorper dictum ligula. Vivamus lobortis turpis urna, ut gravida eros blandit nec. Ut imperdiet lorem tristique arcu egestas, a consectetur nibh hendrerit. Quisque imperdiet neque nunc, non convallis risus mattis vel.</p>
+  <template is="dom-bind">
+    <at-carbon-collapse opened>
+      <div class="title">title 1</div>
+      <div class="content">content</div>
+    </at-carbon-collapse>
+    <at-carbon-collapse>
+      <div class="title">title 2</div>
+      <div class="content">content</div>
+    </at-carbon-collapse>
+    <at-carbon-collapse>
+      <span class="title">
+        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu molestie tortor, eu tempor eros. Fusce consequat laoreet lectus ac placerat. Curabitur eu sem maximus, venenatis arcu quis, varius turpis</h1>
+      </span>
+      <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu molestie tortor, eu tempor eros. Fusce consequat laoreet lectus ac placerat. Curabitur eu sem maximus, venenatis arcu quis, varius turpis. Sed iaculis neque lacus, sit amet scelerisque massa sodales in. Nam ullamcorper dictum ligula. Vivamus lobortis turpis urna, ut gravida eros blandit nec. Ut imperdiet lorem tristique arcu egestas, a consectetur nibh hendrerit. Quisque imperdiet neque nunc, non convallis risus mattis vel.</p>
 
-      <p>Quisque varius sit amet nisl ac pellentesque. Mauris vestibulum, elit ut gravida feugiat, velit mauris tempor tellus, ac cursus diam sapien in eros. Sed iaculis sapien tristique turpis ullamcorper, eget rhoncus nulla finibus. Donec in nisi arcu. Aenean a mi efficitur, lacinia nulla maximus, sodales ex. Curabitur sollicitudin eros at nibh maximus molestie. Nullam nec nisl scelerisque, consequat libero nec, luctus mauris. Aliquam ut nisl risus. Nulla vel quam egestas lacus mollis elementum. Aenean vitae nulla at dui eleifend ultrices in pharetra felis.</p>
+        <p>Quisque varius sit amet nisl ac pellentesque. Mauris vestibulum, elit ut gravida feugiat, velit mauris tempor tellus, ac cursus diam sapien in eros. Sed iaculis sapien tristique turpis ullamcorper, eget rhoncus nulla finibus. Donec in nisi arcu. Aenean a mi efficitur, lacinia nulla maximus, sodales ex. Curabitur sollicitudin eros at nibh maximus molestie. Nullam nec nisl scelerisque, consequat libero nec, luctus mauris. Aliquam ut nisl risus. Nulla vel quam egestas lacus mollis elementum. Aenean vitae nulla at dui eleifend ultrices in pharetra felis.</p>
 
-      <p>Suspendisse et libero ut nunc congue placerat vitae nec ante. Sed fermentum nulla luctus erat aliquam varius. Morbi sagittis arcu at eleifend placerat. Ut id sem a nisl accumsan convallis. Curabitur in erat augue. Duis neque justo, viverra et enim et, lobortis ultricies nisl. Nunc aliquet leo ac volutpat tempor. Vivamus quis velit commodo mi pulvinar laoreet sed eget orci. Curabitur eget consectetur lacus. Quisque imperdiet, nunc a aliquet malesuada, orci metus tempor justo, sit amet ultricies nunc ipsum consectetur velit. Etiam nec neque et lacus tincidunt egestas. Sed maximus vehicula magna vitae facilisis. Pellentesque quis ex tristique, congue turpis sit amet, fringilla tellus.</p>
-    </div>
-  </at-carbon-collapse>
-
+        <p>Suspendisse et libero ut nunc congue placerat vitae nec ante. Sed fermentum nulla luctus erat aliquam varius. Morbi sagittis arcu at eleifend placerat. Ut id sem a nisl accumsan convallis. Curabitur in erat augue. Duis neque justo, viverra et enim et, lobortis ultricies nisl. Nunc aliquet leo ac volutpat tempor. Vivamus quis velit commodo mi pulvinar laoreet sed eget orci. Curabitur eget consectetur lacus. Quisque imperdiet, nunc a aliquet malesuada, orci metus tempor justo, sit amet ultricies nunc ipsum consectetur velit. Etiam nec neque et lacus tincidunt egestas. Sed maximus vehicula magna vitae facilisis. Pellentesque quis ex tristique, congue turpis sit amet, fringilla tellus.</p>
+      </div>
+    </at-carbon-collapse>
+  </template>
 </body>
-
 </html>
