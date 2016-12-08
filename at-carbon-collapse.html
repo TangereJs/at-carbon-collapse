@@ -1,4 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../tangere/tangere.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-collapse/iron-collapse.html">
@@ -21,26 +21,45 @@
   <template>
 
     <style>
-      .title {              
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);        
-      }    
+      .title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .title.left {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
 
       .toogle {
         color: var(--disabled-text-color);
       }
-      
+
+      .left {
+        align-self: center;
+      }
+
+      .right {
+        align-self: center;
+      }
+
+      .right-justified {
+        align-self: center;
+        flex: 1;
+      }
+
     </style>
 
     <paper-item on-tap="_toggleOpened">
       <paper-item-body>
         <div class="title">
-          <div class="flex">
+          <div id="titleInsertPoint">
             <content select=".title"></content>
           </div>
           <paper-icon-button class='toogle' icon=[[_toggleIcon]]></paper-icon-button>
         </div>
-        <iron-collapse class="content" opened={{opened}}>
+        <iron-collapse id="contentInsertPoint" class="content" opened={{opened}}>
           <content select=".content"></content>
         </iron-collapse>
       </paper-item-body>
@@ -55,9 +74,39 @@
     Polymer({
       is: 'at-carbon-collapse',
       properties: {
-        
+
+        iconPosition: {
+          type: String,
+          value: "right-justified",
+          observer: "_iconPositionChanged",
+          xtype: "enum",
+          xvaluelist: [{
+            title: "Left",
+            value: "left"
+          }, {
+            title: "Right",
+            value: "right"
+          }, {
+            title: "Right justified",
+            value: "right-justified"
+          }]
+        },
+
+        title: {
+          type: String,
+          value: "",
+          observer: '_titleChanged'
+        },
+
+        content: {
+          type: String,
+          value: "",
+          xtype: "html",
+          observer: '_contentChanged'
+        },
+
         opened: Boolean,
-        
+
         _toggleIcon: {
           type: String,
           computed: '_computeToggleIcon(opened)'
@@ -67,9 +116,60 @@
       _toggleOpened: function (e) {
         this.opened = !this.opened;
       },
-      
+
       _computeToggleIcon: function (opened) {
         return opened ? "icons:expand-less" : "icons:expand-more";
+      },
+
+      _iconPositionChanged: function (newValue, oldValue) {
+        if (["left", "right", "right-justified"].indexOf(newValue) === -1) { newValue = "right-justified"; }
+
+        this.toggleClass('left', newValue === "left", this.$.titleInsertPoint);
+        this.toggleClass('right', newValue === "right", this.$.titleInsertPoint);
+        this.toggleClass('right-justified', newValue === "right-justified", this.$.titleInsertPoint);
+
+        var titleParentElement = this.$.titleInsertPoint.parentElement;
+        this.toggleClass('left', newValue === "left", titleParentElement);
+
+      },
+
+      ready: function () {
+        var divPrototype = document.createElement('div');
+        var titleChildren = this.getContentChildren('#titleContainer');
+        if (!titleChildren.length) {
+          // use .title property instead
+          var titleContainer = divPrototype.cloneNode(true);
+          Polymer.dom(titleContainer).innerHTML = this.title;
+          Polymer.dom(this.$.titleInsertPoint).appendChild(titleContainer);
+        }
+
+        var contentChildren = this.getContentChildren('#contentContainer');
+        if (!contentChildren.length) {
+          // use .content property instead
+          var contentContainer = divPrototype.cloneNode(true);
+          Polymer.dom(contentContainer).innerHTML = this.content;
+          Polymer.dom(this.$.contentInsertPoint).appendChild(contentContainer);
+        }
+
+        this._isReady = true;
+      },
+
+      _titleChanged: function (newValue, oldValue) {
+        if (!this._isReady) { return; }
+
+        var titleContainer = Polymer.dom(this.$.titleInsertPoint).children[1];
+        if (titleContainer) {
+          Polymer.dom(titleContainer).innerHTML = this.title;
+        }
+      },
+
+      _contentChanged: function (newValue, oldValue) {
+        if (!this._isReady) { return; }
+
+        var contentContainer = Polymer.dom(this.$.contentInsertPoint).children[1];
+        if (contentContainer) {
+          Polymer.dom(contentContainer).innerHTML = this.content;
+        }
       }
     });
 
