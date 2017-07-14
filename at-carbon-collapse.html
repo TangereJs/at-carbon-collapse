@@ -38,16 +38,7 @@
         color: var(--disabled-text-color);
       }
 
-      .left {
-        align-self: center;
-      }
-
-      .right {
-        align-self: center;
-      }
-
       .right-justified {
-        align-self: center;
         flex: 1;
       }
 
@@ -126,13 +117,10 @@
       _iconPositionChanged: function (newValue, oldValue) {
         if (["left", "right", "right-justified"].indexOf(newValue) === -1) { newValue = "right-justified"; }
 
-        this.toggleClass('left', newValue === "left", this.$.titleInsertPoint);
-        this.toggleClass('right', newValue === "right", this.$.titleInsertPoint);
         this.toggleClass('right-justified', newValue === "right-justified", this.$.titleInsertPoint);
 
         var titleParentElement = this.$.titleInsertPoint.parentElement;
         this.toggleClass('left', newValue === "left", titleParentElement);
-
       },
 
       ready: function () {
