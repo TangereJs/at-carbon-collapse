@@ -1,6 +1,6 @@
 {
   "name": "at-carbon-collapse",
-  "version": "1.0.0.1",
+  "version": "1.0.0.4",
   "dependencies": {
     "tangere": "TangereJs/tangere#master",
     "iron-icon": "PolymerElements/iron-icon#master",
@@ -10,5 +10,6 @@
     "paper-item": "PolymerElements/paper-item#master",
     "paper-styles": "TangereJs/paper-styles#master",
     "at-doc-viewer": "TangereJs/at-doc-viewer#master"
-  }
+  },
+  "private": true
 }

@@ -4,8 +4,7 @@
 <link rel="import" href="../iron-collapse/iron-collapse.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
-<link rel="import" href="../paper-item/paper-item.html">
-<link rel="import" href="../paper-item/paper-item-body.html">
+
 
 <!--
 
@@ -44,8 +43,8 @@
 
     </style>
 
-    <paper-item on-tap="_toggleOpened">
-      <paper-item-body>
+    <div on-tap="_toggleOpened">
+      <div style="overflow:hidden">
         <div class="title">
           <div id="titleInsertPoint">
             <content select=".title"></content>
@@ -55,8 +54,8 @@
         <iron-collapse id="contentInsertPoint" class="content" opened={{opened}}>
           <content select=".content"></content>
         </iron-collapse>
-      </paper-item-body>
-    </paper-item>
+      </div>
+    </div>
 
   </template>
 </dom-module>
