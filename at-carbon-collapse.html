@@ -47,13 +47,11 @@
       <div style="overflow:hidden">
         <div class="title">
           <div id="titleInsertPoint">
-            <content select=".title"></content>
             <slot name="title"></slot>
           </div>
           <paper-icon-button class="toogle" icon=[[_toggleIcon]]></paper-icon-button>
         </div>
         <iron-collapse id="contentInsertPoint" class="content" opened={{opened}}>
-          <content select=".content"></content>
           <slot name="content"></slot>
         </iron-collapse>
       </div>
